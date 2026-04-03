@@ -1,0 +1,227 @@
+// =========================
+// FILE: index.html
+// =========================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <h2>MyPortfolio</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <img src="profile.jpg" alt="Profile">
+    <h1 id="name">Your Name</h1>
+    <p>B.Tech CSE (AI & ML) Student</p>
+    <button onclick="editName()">Edit Name</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+// =========================
+// FILE: about.html
+// =========================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Me</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>Same Navbar</nav>
+
+  <section>
+    <h1>About Me</h1>
+    <textarea id="bio">I am a 2nd sem B.Tech CSE (AI & ML) student at MIT Vishwaprayag University.</textarea>
+    <button onclick="saveBio()">Save</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+// =========================
+// FILE: projects.html
+// =========================
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Projects</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>Same Navbar</nav>
+
+  <h1>Projects</h1>
+  <input id="projectInput" placeholder="Add project">
+  <button onclick="addProject()">Add</button>
+  <ul id="projectList"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+// =========================
+// FILE: achievements.html
+// =========================
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Achievements</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>Same Navbar</nav>
+
+  <h1>Achievements</h1>
+  <input id="achInput" placeholder="Add achievement">
+  <button onclick="addAchievement()">Add</button>
+  <ul id="achList"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+// =========================
+// FILE: contact.html
+// =========================
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>Same Navbar</nav>
+
+  <h1>Contact</h1>
+  <input id="email" placeholder="Email">
+  <input id="phone" placeholder="Phone">
+  <input id="linkedin" placeholder="LinkedIn">
+  <button onclick="saveContact()">Save</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+// =========================
+// FILE: style.css
+// =========================
+body {
+  font-family: Arial;
+  margin: 0;
+  background: linear-gradient(45deg, #ff6ec4, #7873f5);
+  color: white;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: rgba(0,0,0,0.5);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li a {
+  margin: 10px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: yellow;
+  transform: scale(1.2);
+}
+
+.hero {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.hero img {
+  width: 150px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.hero img:hover {
+  transform: scale(1.1);
+}
+
+button {
+  padding: 10px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: yellow;
+  color: black;
+}
+
+// =========================
+// FILE: script.js
+// =========================
+function editName() {
+  let name = prompt("Enter your name:");
+  document.getElementById("name").innerText = name;
+}
+
+function saveBio() {
+  localStorage.setItem("bio", document.getElementById("bio").value);
+}
+
+window.onload = function() {
+  if(document.getElementById("bio")) {
+    document.getElementById("bio").value = localStorage.getItem("bio") || "";
+  }
+}
+
+function addProject() {
+  let input = document.getElementById("projectInput");
+  let list = document.getElementById("projectList");
+
+  let li = document.createElement("li");
+  li.innerText = input.value;
+  li.onclick = () => li.remove();
+
+  list.appendChild(li);
+}
+
+function addAchievement() {
+  let input = document.getElementById("achInput");
+  let list = document.getElementById("achList");
+
+  let li = document.createElement("li");
+  li.innerText = input.value;
+  li.onclick = () => li.remove();
+
+  list.appendChild(li);
+}
+
+function saveContact() {
+  localStorage.setItem("email", document.getElementById("email").value);
+  localStorage.setItem("phone", document.getElementById("phone").value);
+  localStorage.setItem("linkedin", document.getElementById("linkedin").value);
+}
