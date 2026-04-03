@@ -1,0 +1,86 @@
+body {
+  margin:0;
+  font-family: Arial;
+  background: linear-gradient(135deg,#667eea,#764ba2);
+  color:white;
+}
+
+.dark {
+  background:#111;
+}
+
+nav {
+  display:flex;
+  justify-content:space-between;
+  padding:10px;
+  background:rgba(0,0,0,0.5);
+}
+
+nav ul {
+  display:flex;
+  list-style:none;
+}
+
+nav ul li a {
+  margin:10px;
+  color:white;
+  text-decoration:none;
+}
+
+.hero {
+  text-align:center;
+  margin-top:50px;
+}
+
+.profile {
+  width:150px;
+  border-radius:50%;
+}
+
+.card {
+  margin:30px;
+  padding:20px;
+  background:rgba(255,255,255,0.1);
+  border-radius:15px;
+}
+
+button {
+  padding:10px;
+  margin:5px;
+  cursor:pointer;
+  border:none;
+  border-radius:8px;
+}
+
+button:hover {
+  transform:scale(1.1);
+}
+
+.skill {
+  margin:10px 0;
+}
+
+.bar {
+  height:10px;
+  background:cyan;
+}
+
+/* CHATBOT */
+.chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 280px;
+  background: white;
+  color: black;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#chat-box {
+  height: 200px;
+  overflow-y: auto;
+  background: #f1f1f1;
+  padding: 5px;
+  margin-bottom: 10px;
+}
