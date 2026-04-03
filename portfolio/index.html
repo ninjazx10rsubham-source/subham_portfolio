@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Portfolio</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body>
+
+<nav>
+  <h2>MyPortfolio</h2>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="certificates.html">Certificates</a></li>
+  </ul>
+  <button onclick="toggleMode()">🌙</button>
+</nav>
+
+<section class="hero">
+  <img src="profile.jpg" class="profile">
+  <h1 id="name">Your Name</h1>
+  <p>B.Tech CSE (AI & ML) Student</p>
+  <button onclick="editName()">Edit Name</button>
+</section>
+
+<section class="card">
+  <h2>Skills</h2>
+  <div class="skill">Python <div class="bar" style="width:80%"></div></div>
+  <div class="skill">AI/ML <div class="bar" style="width:70%"></div></div>
+</section>
+
+<!-- CHATBOT -->
+<div class="chatbot">
+  <div class="chat-header">🤖 Assistant</div>
+  <div id="chat-box"></div>
+  <input id="chat-input" placeholder="Ask me...">
+  <button onclick="sendMessage()">Send</button>
+  <button onclick="startVoice()">🎤</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
